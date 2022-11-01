@@ -1,5 +1,5 @@
 [package]
-name = "TAS_DIAS"
+name = "tas_dias"
 version = "0.1.0"
 authors = ["OSCARWB <oscarwb2000@gmail.com>"]
 edition = "2021"

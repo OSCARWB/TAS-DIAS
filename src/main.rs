@@ -11,7 +11,7 @@ fn main() {
 	eframe::run_native(
 		"eframe template",
 		native_options,
-		Box::new(|cc| Box::new(TAS_DIAS::TemplateApp::new(cc))),
+		Box::new(|cc| Box::new(tas_dias::TemplateApp::new(cc))),
 	);
 }
 
@@ -28,7 +28,7 @@ fn main() {
 	eframe::start_web(
 		"the_canvas_id", // hardcode it
 		web_options,
-		Box::new(|cc| Box::new(TAS_DIAS::TemplateApp::new(cc))),
+		Box::new(|cc| Box::new(tas_dias::TemplateApp::new(cc))),
 	)
 	.expect("failed to start eframe");
 }

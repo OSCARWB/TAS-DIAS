@@ -3,18 +3,6 @@
 version = 3
 
 [[package]]
-name = "TAS_DIAS"
-version = "0.1.0"
-dependencies = [
- "console_error_panic_hook",
- "eframe",
- "egui",
- "serde",
- "tracing-subscriber",
- "tracing-wasm",
-]
-
-[[package]]
 name = "ab_glyph"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1443,6 +1431,18 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
+]
+
+[[package]]
+name = "tas_dias"
+version = "0.1.0"
+dependencies = [
+ "console_error_panic_hook",
+ "eframe",
+ "egui",
+ "serde",
+ "tracing-subscriber",
+ "tracing-wasm",
 ]
 
 [[package]]
