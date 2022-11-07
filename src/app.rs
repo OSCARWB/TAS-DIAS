@@ -1,4 +1,5 @@
 use crate::character::Character;
+use egui::Visuals;
 
 /// We derive Deserialize/Serialize so we can persist app state on shutdown.
 #[derive(serde::Deserialize, serde::Serialize)]
@@ -10,6 +11,7 @@ pub struct TemplateApp {
 	// // this how you opt-out of serialization of a member
 	// //#[serde(skip)]
 	// value: f32,
+	#[serde(skip)]
 	character: Character
 }
 
@@ -29,7 +31,7 @@ impl TemplateApp {
 	pub fn new(cc: &eframe::CreationContext<'_>) -> Self {
 		// This is also where you can customized the look at feel of egui using
 		// `cc.egui_ctx.set_visuals` and `cc.egui_ctx.set_fonts`.
-
+		cc.egui_ctx.set_visuals(Visuals::dark());
 		// Load previous app state (if any).
 		// Note that you must enable the `persistence` feature for this to work.
 		if let Some(storage) = cc.storage {
@@ -48,6 +50,7 @@ impl eframe::App for TemplateApp {
 
 	fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
 		let Self {character} = self;
+		
 		egui::CentralPanel::default().show(&ctx, |ui|{
 			character.draw_basics(ui);
 			ui.separator();

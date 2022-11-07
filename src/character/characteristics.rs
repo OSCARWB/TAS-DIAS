@@ -42,6 +42,7 @@ impl Characteristics
 	{
 		ui.label(name);
 		ui.label(value.to_string());
+		ui.label(Self::calc_modifier(value).to_string());
 		ui.end_row();
 	}
 
@@ -49,44 +50,24 @@ impl Characteristics
 	{
 		egui::Frame::default().show(ui, |ui|
 			{
-				ui.label("Characteristics");
-				egui::Grid::new("characteristics").show(ui, |ui|
-				{
-					ui.label("");
-					ui.label("Base");
-					//ui.label("Temp");
-					//ui.label("Mod");
-					ui.end_row();
-					Self::draw_stat(ui, "Strength".to_string(), self.strength);
-					ui.label("Dexterity");
-					ui.label("7");
-					ui.label("7");
-					ui.label("7");
-					ui.end_row();
-					ui.label("Endurance");
-					ui.label("7");
-					ui.label("7");
-					ui.label("7");
-					ui.end_row();
-					ui.label("Intelligence");
-					ui.label("7");
-					ui.label("7");
-					ui.label("7");
-					ui.end_row();
-					ui.label("Education");
-					ui.label("7");
-					ui.label("7");
-					ui.label("7");
-					ui.end_row();
-					ui.label("Social Standing");
-					ui.label("7");
-					ui.label("7");
-					ui.label("7");
-					ui.end_row();
-					ui.label("Psionics");
-					ui.label("7");
-					ui.label("7");
-					ui.label("7");
+				ui.group(|ui|{
+					
+					ui.heading("Characteristics");
+					egui::Grid::new("characteristics").show(ui, |ui|
+						{
+							ui.label("");
+							ui.label("Base");
+							//ui.label("Temp");
+							ui.label("Mod");
+							ui.end_row();
+							Self::draw_stat(ui, "Strength".to_string(), self.strength);
+							Self::draw_stat(ui, "Dexterity".to_string(), self.dexterity);
+							Self::draw_stat(ui, "Endurance".to_string(), self.endurance);
+							Self::draw_stat(ui, "Intelligence".to_string(), self.intelligence);
+							Self::draw_stat(ui, "Education".to_string(), self.education);
+							Self::draw_stat(ui, "Socual Standing".to_string(), self.social_standing);
+							Self::draw_stat(ui, "Psionics".to_string(), self.psionics);
+						});
 				});
 			});
 	}

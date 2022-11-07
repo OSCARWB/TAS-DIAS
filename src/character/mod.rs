@@ -1,7 +1,10 @@
 use egui::Ui;
 
-use self::characteristics::Characteristics;
+mod career;
 mod characteristics;
+
+use self::characteristics::Characteristics;
+use self::career::Career;
 
 #[derive(serde::Deserialize, serde::Serialize)]
 pub struct Character
@@ -12,6 +15,7 @@ pub struct Character
 	pub race: String,
 	pub homeworld: String,
 	pub characteristics: Characteristics,
+	pub career_history: std::vec::Vec<Career>,
 }
 
 impl Default for Character
@@ -24,6 +28,7 @@ impl Default for Character
 			race: "Human".to_owned(),
 			homeworld: "Ξ Ondratae Minoris".to_owned(),
 			characteristics: Characteristics::default(),
+			career_history: vec![Career::default()], 
 		}
 	}
 }
@@ -32,23 +37,33 @@ impl Character
 {
 	pub fn draw_basics(&self,ui:&mut Ui)
 	{
-		ui.horizontal(|ui|{
+		ui.horizontal_wrapped(|ui|{
 			egui::global_dark_light_mode_switch(ui);
 			ui.separator();
-			ui.label("Name :");
-			ui.label(self.name.clone());
+			//ui.group(|ui|{
+				ui.label("Name :");
+				ui.strong(self.name.clone());
+			//});
 			ui.separator();
-			ui.label("Age :");
-			ui.label(self.age.clone());
+			//ui.group(|ui|{
+				ui.label("Age :");
+				ui.strong(self.age.clone());
+			//});
 			ui.separator();
-			ui.label("Terms :");
-			ui.label(self.age.to_string());
+			//ui.group(|ui|{
+				ui.label("Terms :");
+				ui.strong(self.age.to_string());
+			//});
 			ui.separator();
-			ui.label("Race :");
-			ui.label(self.race.clone());
+			//ui.group(|ui|{
+				ui.label("Race :");
+				ui.strong(self.race.clone());
+			//});
 			ui.separator();
-			ui.label("Homeworld :");
-			ui.label(self.homeworld.clone());
+			//ui.group(|ui|{
+				ui.label("Homeworld :");
+				ui.strong(self.homeworld.clone());
+			//});
 		});
 	}
 }
