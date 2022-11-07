@@ -49,22 +49,7 @@ impl eframe::App for TemplateApp {
 	fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
 		let Self {character} = self;
 		egui::CentralPanel::default().show(&ctx, |ui|{
-			ui.horizontal(|ui|{
-				ui.label("Name :");
-				ui.label("Hirari of Ondrata Minor");
-				ui.separator();
-				ui.label("Age :");
-				ui.label("44");
-				ui.separator();
-				ui.label("Terms :");
-				ui.label("2");
-				ui.separator();
-				ui.label("Race :");
-				ui.label("Human");
-				ui.separator();
-				ui.label("Homeworld :");
-				ui.label("Ξ Ondratae Minoris");
-			});
+			character.draw_basics(ui);
 			ui.separator();
 			character.characteristics.draw(ui);
 		});

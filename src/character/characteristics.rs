@@ -1,30 +1,5 @@
 use egui::Ui;
 
-#[derive(serde::Deserialize, serde::Serialize)]
-pub struct Character
-{
-	pub name: String,
-	pub age: String,
-	pub terms: u8,
-	pub race: String,
-	pub homeworld: String,
-	pub characteristics: Characteristics,
-}
-
-impl Default for Character
-{
-	fn default() -> Self {
-		Self {
-			name: "Hirari of Ondrata Minor".to_owned(),
-			age: "N/A".to_owned(),
-			terms: 0,
-			race: "Human".to_owned(),
-			homeworld: "Ξ Ondratae Minoris".to_owned(),
-			characteristics: Characteristics::default(),
-		}
-	}
-}
-
 #[derive(serde::Deserialize, serde::Serialize, Copy, Clone)]
 pub struct Characteristics
 {
