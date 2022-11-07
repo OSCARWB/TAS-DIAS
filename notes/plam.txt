@@ -1,0 +1,76 @@
+Character:
+	name
+	age
+	terms
+	race
+	homeworld
+	characteristics:
+	wounds:
+		strength
+		dexterity
+		endurance
+	skills:
+	armour:
+	weapons:
+	equipment:
+	finances:
+	carreer history:
+	psionic powers:
+
+armour:
+	type
+	tech level
+	rating
+	skill
+	location
+	mass
+
+characteristics:
+	--pys
+	strength
+	dexterity
+	endurance
+	--soft
+	intelligence
+	education
+	social standing
+	--psi
+	psionics
+
+carreer history:
+	career
+	branch
+	events
+	rank
+	title
+
+equipment:
+	name
+	mass
+
+finances:
+	pension
+	debt
+	cash on hand
+	monthly ship payments
+	payments remaining
+
+psionic powers:
+	talent
+	powers
+	psi cost
+
+skills:
+	name
+	specialty
+	level
+
+weapons:
+	weapon
+	tl
+	mass
+	rate of fire
+	attack
+	damage
+	magazine
+	range
